@@ -1,0 +1,26 @@
+version: '3.7'
+
+services:
+  mssqlData:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    environment:
+      SA_PASSWORD: ${DB_PASSWORD}
+      ACCEPT_EULA: Y
+    ports:
+      - "1433:1433"
+    volumes:
+      - ./data:/var/opt/mssql/data
+
+  app.api:
+    image: ${DOCKER_REGISTRY-}app.api
+    build:
+      context: .
+      dockerfile: RaceAndPerformance/Api/Dockerfile
+    depends_on:
+      - mssqlData
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Development"
+      DatabaseSettings__ConnectionString: ${CONNECTION_STRING}
+    ports:
+      - "5000:80"
+      - "5001:443"

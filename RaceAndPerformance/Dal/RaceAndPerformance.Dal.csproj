@@ -1,0 +1,11 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>netcoreapp3.1</TargetFramework>
+		<LangVersion>9.0</LangVersion>
+		<Configurations>Debug;Release;docker-compose</Configurations>
+	</PropertyGroup>
+	<ItemGroup>
+	  <ProjectReference Include="..\Core\RaceAndPerformance.Core.csproj" />
+	</ItemGroup>
+</Project>

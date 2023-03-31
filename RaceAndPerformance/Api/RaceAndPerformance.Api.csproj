@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+	<PropertyGroup>
+		<TargetFramework>netcoreapp3.1</TargetFramework>
+		<UserSecretsId>1a420cf8-7f80-4409-a3bf-c1e5832dc8fd</UserSecretsId>
+		<LangVersion>9.0</LangVersion>
+		<DockerLaunchAction>LaunchBrowser</DockerLaunchAction>
+		<DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+		<DockerfileContext>..\..</DockerfileContext>
+		<DockerComposeProjectPath>..\..\docker-compose.dcproj</DockerComposeProjectPath>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="3.1.32" />
+		<PackageReference Include="Microsoft.Extensions.Logging" Version="3.1.32" />
+		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+		<PackageReference Include="AspNetCore.HealthChecks.SqlServer" Version="3.2.0" />
+		<PackageReference Include="AspNetCoreRateLimit" Version="4.0.2" />
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning" Version="5.0.0" />
+		<PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.18.1" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.18">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Application\RaceAndPerformance.Application.csproj" />
+	</ItemGroup>
+</Project>
