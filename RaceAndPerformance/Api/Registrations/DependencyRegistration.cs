@@ -6,6 +6,7 @@ using RaceAndPerformance.Application.Services.Contracts;
 using RaceAndPerformance.Application.Services.Implementations;
 using RaceAndPerformance.Dal.Repository.Implementations;
 using RaceAndPerformance.Application.Mapper;
+using AutoMapper;
 
 namespace RaceAndPerformance.Api.Registrations
 {
@@ -19,7 +20,13 @@ namespace RaceAndPerformance.Api.Registrations
             services.AddTransient<IMatchRepository, MatchRepository>();
             services.AddTransient<IMatchService, MatchService>();
 
-            services.AddSingleton<MapperlyMappings>();
+            var mappingConfig = new MapperConfiguration(mc =>
+            {
+                mc.AddProfile(new MappingProfile());
+            });
+
+            IMapper mapper = mappingConfig.CreateMapper();
+            services.AddSingleton(mapper);
         }
     }
 }

@@ -6,7 +6,7 @@ This is an ASP.NET Core 3.1 Web API project called RaceAndPerformance. The proje
 - Docker
 - Healthcheck
 - Swagger
-- Mediatr pattern with FluentValidation
+- Mediator pattern with validations
 - Rate limiting
 
 ## Prerequisites
@@ -23,7 +23,7 @@ Make sure to restart your command prompt or terminal after installing the `dotne
 
 1. Clone the repository: `git clone https://github.com/echaritonidis/RaceAndPerformance.git`
 2. Navigate to the project directory: `cd RaceAndPerformance`
-3. Run the docker-compose.yml: `docker-compose up -d`
+3. Run the docker-compose.yml: `docker-compose -f docker-compose.yml -f docker-compose.override.yml up`
 
 The API should now be accessible at `https://localhost:5001`.
 
@@ -49,13 +49,21 @@ The API includes a healthcheck endpoint at `https://localhost:5001/hc`. This can
 
 The API includes rate limiting. The default configuration limits each IP to 100 requests per minute. The rate limiting rules can be configured in the appsettings.Development.json file under the IpRateLimiting section.
 
-## Mediatr Pattern and FluentValidation
+## Mediator Pattern and Validation
 
-The API uses the Mediatr pattern along with FluentValidation for command and query validation. Commands and queries are validated automatically before being processed by their respective handlers.
+The API uses the Mediator pattern along with FluentValidation for command and query validation. Commands and queries are validated automatically before being processed by their respective handlers.
 
 ## Tests
 
 Integration tests have been written for the API controllers using the xUnit. The tests can be found in the `Tests` directory and are run using the `dotnet test` command.
+
+## Postman
+
+The collection contains a set of pre-configured requests that can be used to interact with the API:
+
+1. Import the postman_collection.json file into Postman.
+2. Expand the collection to see the available endpoints.
+3. Click on the Send button to send the request to the API.
 
 ## License
 

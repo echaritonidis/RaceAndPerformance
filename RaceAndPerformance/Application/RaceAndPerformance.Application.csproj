@@ -5,10 +5,10 @@
 		<LangVersion>9.0</LangVersion>
 		<Configurations>Debug;Release;docker-compose</Configurations>
 	</PropertyGroup>
-
+	
 	<ItemGroup>
+		<PackageReference Include="AutoMapper" Version="12.0.1" />
 		<PackageReference Include="FluentValidation.AspNetCore" Version="11.3.0" />
-		<PackageReference Include="Riok.Mapperly" Version="2.7.0" />
 		<PackageReference Include="MediatR" Version="12.0.1" />
 	</ItemGroup>
 
