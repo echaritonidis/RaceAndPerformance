@@ -3,48 +3,49 @@ using RaceAndPerformance.Application.Services.Contracts;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
-using RaceAndPerformance.Application.Mapper;
 using RaceAndPerformance.Application.Models.Fetch;
 using RaceAndPerformance.Application.Models.Create;
 using RaceAndPerformance.Application.Models.Update;
+using AutoMapper;
+using RaceAndPerformance.Core.Dto;
 
 namespace RaceAndPerformance.Application.Services.Implementations
 {
     public class MatchService : IMatchService
     {
         private readonly IMatchRepository _matchRepository;
-        private readonly MapperlyMappings _mapperlyMappings;
+        private readonly IMapper _mapper;
 
-        public MatchService(IMatchRepository matchRepository, MapperlyMappings mapperlyMappings)
+        public MatchService(IMatchRepository matchRepository, IMapper mapper)
         {
             _matchRepository = matchRepository;
-            _mapperlyMappings = mapperlyMappings;
+            _mapper = mapper;
         }
 
         public async Task<List<GetMatch>> GetAllMatches(CancellationToken cancellationToken)
         {
             var items = await _matchRepository.GetAllAsync(cancellationToken);
 
-            return _mapperlyMappings.MapDtoToGetMatchList(items);
+            return _mapper.Map<List<GetMatch>>(items);
         }
 
         public async Task<GetMatch> GetMatch(long id, CancellationToken cancellationToken)
         {
             var match = await _matchRepository.GetByIdAsync(id, cancellationToken);
 
-            return _mapperlyMappings.MapDtoToGetMatch(match);
+            return _mapper.Map<GetMatch>(match);
         }
 
         public async Task<long> InsertMatch(CreateMatch createMatch, CancellationToken cancellationToken)
         {
-            var dto = _mapperlyMappings.MapCreateMatchToDto(createMatch);
+            var dto = _mapper.Map<MatchDto>(createMatch);
 
             return await _matchRepository.InsertAsync(dto, cancellationToken);
         }
 
         public async Task<long> UpdateMatch(UpdateMatch updateMatch, CancellationToken cancellationToken)
         {
-            var dto = _mapperlyMappings.MapUpdateMatchToDto(updateMatch);
+            var dto = _mapper.Map<MatchDto>(updateMatch);
 
             return await _matchRepository.UpdateAsync(dto, cancellationToken);
         }

@@ -1,0 +1,176 @@
+{
+	"info": {
+		"_postman_id": "abaf23c8-cfa7-436a-ad1a-e88820470eaa",
+		"name": "RaceAndPerformance",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1296397"
+	},
+	"item": [
+		{
+			"name": "Api",
+			"item": [
+				{
+					"name": "Get Matches",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/v1.0/match/get-all",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"v1.0",
+								"match",
+								"get-all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Match",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Id\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/v1.0/match/get-match",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"v1.0",
+								"match",
+								"get-match"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Match",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Match\": {\r\n        \"Id\": 1,\r\n        \"Description\": \"Lorem ipsum Lorem ipsum Lorem ipsum Lorem 12\",\r\n        \"MatchDate\": \"30-03-2023\",\r\n        \"MatchTime\": \"14:25\",\r\n        \"TeamA\": \"Team AA\",\r\n        \"TeamB\": \"Team BB\",\r\n        \"Sport\": 1,\r\n        \"MatchOdds\": [\r\n            {\r\n                \"Id\": 1,\r\n                \"Specifier\": \"X\",\r\n                \"Odd\": 1.1\r\n            }\r\n        ]\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/v1.0/match/update",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"v1.0",
+								"match",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Insert Match",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Match\": {\r\n        \"Description\": \"Lorem ipsum Lorem ipsum Lorem ipsum Lorem 12\",\r\n        \"MatchDate\": \"30-03-2023\",\r\n        \"MatchTime\": \"14:25\",\r\n        \"TeamA\": \"Team A\",\r\n        \"TeamB\": \"Team B\",\r\n        \"Sport\": 1,\r\n        \"MatchOdds\": [\r\n            {\r\n                \"Specifier\": \"X\",\r\n                \"Odd\": 1.1\r\n            }\r\n        ]\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/v1.0/match/create",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"v1.0",
+								"match",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Match",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Id\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:5001/api/v1.0/match/delete",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"v1.0",
+								"match",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

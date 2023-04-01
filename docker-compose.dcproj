@@ -6,7 +6,7 @@
     <ProjectGuid>bb5f29b4-67a5-40d8-a7b8-659ca31f8048</ProjectGuid>
     <DockerLaunchAction>LaunchBrowser</DockerLaunchAction>
     <DockerServiceUrl>{Scheme}://localhost:{ServicePort}/api/v1.0/match</DockerServiceUrl>
-    <DockerServiceName>raceandperformance.api</DockerServiceName>
+    <DockerServiceName>app.api</DockerServiceName>
   </PropertyGroup>
   <ItemGroup>
     <None Include=".env" />
